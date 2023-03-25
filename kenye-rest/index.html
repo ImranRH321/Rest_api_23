@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kanye</title>
+  </head>
+  <body>
+    <button onclick="reloadButtonCall()">Reload</button>
+    <h3 id="randomPersonText"></h3>
+  </body>
+
+  <script>
+    // that fun
+    function reloadButtonCall() {
+      fetch("https://api.kanye.rest/")
+        .then((res) => res.json())
+        .then((json) => displayButtonClick(json.quote));
+
+      function displayButtonClick(data) {
+        console.log(data);
+        const h3 = document.getElementById("randomPersonText");
+        h3.innerHTML = data;
+      }
+    }
+  </script>
+</html>
